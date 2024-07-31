@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.26)
 
 project(glomap VERSION 0.0.1)
 
@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_NO_CYCLES ON)
+
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake  ${CMAKE_MODULE_PATH})
 
 option(OPENMP_ENABLED "Whether to enable OpenMP parallelization" ON)
 option(TESTS_ENABLED "Whether to build test binaries" OFF)

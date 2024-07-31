@@ -61,6 +61,9 @@ set(HEADERS
     scene/types.h
 )
 
+find_package(SuiteSparse REQUIRED)
+message("SuiteSparse_CHOLMOD_INCLUDE_DIR : ${SuiteSparse_CHOLMOD_INCLUDE_DIR}")
+
 add_library(glomap ${SOURCES} ${HEADERS})
 if(NOT FETCH_COLMAP)
     target_link_libraries(glomap PUBLIC colmap::colmap)
@@ -78,7 +81,8 @@ target_link_libraries(
     glomap
     PUBLIC
         Eigen3::Eigen
-        Ceres::ceres
+        # Ceres::ceres
+        ${CERES_LIBRARIES}
         ${BOOST_LIBRARIES}
         ${SuiteSparse_CHOLMOD_LIBRARY}
 )
